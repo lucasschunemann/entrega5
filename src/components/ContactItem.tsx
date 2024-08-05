@@ -10,17 +10,40 @@ const Item = styled.li`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
-  border-bottom: 1px solid #ccc;
+  padding: 15px;
+  margin-bottom: 10px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
   animation: slideIn 0.5s ease-in-out;
 
-  &:nth-child(even) {
-    background-color: #f9f9f9;
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
   }
 `;
 
 const Info = styled.div`
   flex: 1;
+  margin-right: 20px;
+`;
+
+const Name = styled.p`
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+`;
+
+const Email = styled.p`
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 5px;
+`;
+
+const Phone = styled.p`
+  font-size: 1rem;
+  color: #666;
 `;
 
 const Buttons = styled.div`
@@ -29,7 +52,7 @@ const Buttons = styled.div`
 `;
 
 const Button = styled.button`
-  padding: 5px 10px;
+  padding: 8px 12px;
   border: none;
   border-radius: 5px;
   background-color: #007bff;
@@ -85,6 +108,14 @@ const ModalButton = styled.button`
   &:hover {
     background-color: #0056b3;
   }
+
+  &:last-child {
+    background-color: #6c757d;
+
+    &:hover {
+      background-color: #5a6268;
+    }
+  }
 `;
 
 interface ContactItemProps {
@@ -120,11 +151,9 @@ const ContactItem: React.FC<ContactItemProps> = ({ contact }) => {
     <>
       <Item>
         <Info>
-          <p>
-            <strong>{contact.name}</strong>
-          </p>
-          <p>{contact.email}</p>
-          <p>{contact.phone}</p>
+          <Name>{contact.name}</Name>
+          <Email>{contact.email}</Email>
+          <Phone>{contact.phone}</Phone>
         </Info>
         <Buttons>
           <Button onClick={handleEdit}>Editar</Button>

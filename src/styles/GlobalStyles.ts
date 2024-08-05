@@ -12,6 +12,7 @@ const GlobalStyles = createGlobalStyle`
     background-color: #f0f2f5;
     color: #333;
     line-height: 1.6;
+    font-family: 'Poppins', sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
